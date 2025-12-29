@@ -1,0 +1,298 @@
+body{
+    font-family: "Montserrat", sans-serif;
+}
+/*? Width % Tabanlı !*/
+.w-5   { width: 5%; }
+.w-10  { width: 10%; }
+.w-15  { width: 15%; }
+.w-20  { width: 20%; }
+.w-25  { width: 25%; }
+.w-30  { width: 30%; }
+.w-35  { width: 35%; }
+.w-40  { width: 40%; }
+.w-45  { width: 45%; }
+.w-50  { width: 50%; }
+.w-55  { width: 55%; }
+.w-60  { width: 60%; }
+.w-65  { width: 65%; }
+.w-70  { width: 70%; }
+.w-75  { width: 75%; }
+.w-80  { width: 80%; }
+.w-85  { width: 85%; }
+.w-90  { width: 90%; }
+.w-95  { width: 95%; }
+.w-100 { width: 100%; }
+/*! ---------------- !*/
+/*? Height % Tabanlı !*/
+/*! ---------------- !*/
+.h-5   { height: 5%; }
+.h-10  { height: 10%; }
+.h-15  { height: 15%; }
+.h-20  { height: 20%; }
+.h-25  { height: 25%; }
+.h-30  { height: 30%; }
+.h-35  { height: 35%; }
+.h-40  { height: 40%; }
+.h-45  { height: 45%; }
+.h-50  { height: 50%; }
+.h-55  { height: 55%; }
+.h-60  { height: 60%; }
+.h-65  { height: 65%; }
+.h-70  { height: 70%; }
+.h-75  { height: 75%; }
+.h-80  { height: 80%; }
+.h-85  { height: 85%; }
+.h-90  { height: 90%; }
+.h-95  { height: 95%; }
+.h-100 { height: 100%; }
+/*! ---------------- !*/
+/*? Width Pixel Tabanlı */
+/*! ---------------- !*/
+.w-50px  { width: 50px; }
+.w-100px { width: 100px; }
+.w-150px { width: 150px; }
+.w-200px { width: 200px; }
+.w-250px { width: 250px; }
+.w-300px { width: 300px; }
+/*! ---------------- !*/
+/*? Height Pixel Tabanlı */
+/*! ---------------- !*/
+.h-50px  { height: 50px; }
+.h-100px { height: 100px; }
+.h-150px { height: 150px; }
+.h-200px { height: 200px; }
+.h-250px { height: 250px; }
+.h-300px { height: 300px; }
+/*! ---------------- !*/
+/*? Height Viewport Height Tabanlı */
+/*! ---------------- !*/
+.h-25vh  { height: 25vh; }
+.h-50vh  { height: 50vh; }
+.h-75vh  { height: 75vh; }
+.h-100vh { height: 100vh; }
+/*! ---------------- !*/
+/*? Flex Ayarları */
+/*! ---------------- !*/
+.d-flex       { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex-row   { flex-direction: row; }
+.flex-col   { flex-direction: column; }
+.flex-wrap  { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+/*! ---------------- !*/
+/*? Justify Content */
+/*! ---------------- !*/
+.justify-start   { justify-content: flex-start; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around  { justify-content: space-around; }
+.justify-evenly  { justify-content: space-evenly; }
+/*! ---------------- !*/
+/*? Align Items */
+/*! ---------------- !*/
+.items-start    { align-items: flex-start; }
+.items-center   { align-items: center; }
+.items-end      { align-items: flex-end; }
+.items-stretch  { align-items: stretch; }
+.items-baseline { align-items: baseline; }
+/*! ---------------- !*/
+/*? Gap */
+/*! ---------------- !*/
+.gap-0  { gap: 0px; }
+.gap-2  { gap: 2px; }
+.gap-4  { gap: 4px; }
+.gap-6  { gap: 6px; }
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.gap-20 { gap: 20px; }
+.gap-22 { gap: 22px; }
+.gap-24 { gap: 24px; }
+.gap-26 { gap: 26px; }
+.gap-32 { gap: 32px; }
+.gap-40 { gap: 40px; }
+/*! ---------------- !*/
+/*? Text Align */
+/*! ---------------- !*/
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+/*! ---------------- !*/
+/*? Text decoration */
+/*! ---------------- !*/
+.text-underline { text-decoration: underline; }
+.text-overline { text-decoration: overline; }
+.text-dashed { text-decoration: dashed ; }
+.text-dotted { text-decoration: dotted ; }
+.text-wavy { text-decoration: wavy ; }
+/*! ---------------- !*/
+/*? Margin */
+/*! ---------------- !*/
+.m-0  { margin: 0px; }
+.m-10  { margin: 10px; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.mt-50 { margin-top: 50px; }
+.mt-60 { margin-top: 60px; }
+.mt-70 { margin-top: 70px; }
+.mt-80 { margin-top: 80px; }
+.mr-10 { margin-right: 10px; }
+.mb-10 { margin-bottom: 10px; }
+.ml-10 { margin-left: 10px; }
+.mx-10 { margin-left: 10px; margin-right: 10px; }
+.my-10 { margin-top: 10px; margin-bottom: 10px; }
+.m-20  { margin: 20px; }
+.p-20  { padding: 20px; }
+/*! ---------------- !*/
+/*? Padding */
+/*! ---------------- !*/
+.pt-10 { padding-top: 10px; }
+.pr-10 { padding-right: 10px; }
+.pb-10 { padding-bottom: 10px; }
+.pl-10 { padding-left: 10px; }
+.px-10 { padding-left: 10px; padding-right: 10px; }
+.py-10 { padding-top: 10px; padding-bottom: 10px; }
+.p-5   { padding: 5px; }
+.p-10  { padding: 10px; }
+.p-11  { padding: 11px; }
+.p-20  { padding: 20px; }
+.p-30  { padding: 30px; }
+.p-40  { padding: 40px; }
+.p-50  { padding: 50px; }
+/*! ---------------- !*/
+/*? Background Color */
+/*! ---------------- !*/
+.bg-red       { background-color: red; }
+.bg-blue      { background-color: blue; }
+.bg-gray      { background-color: gray; }
+.bg-black     { background-color: black; }
+.bg-white     { background-color: white; }
+.bg-green     { background-color: green; }
+.bg-yellow    { background-color: yellow; }
+.bg-orange    { background-color: orange; }
+.bg-purple    { background-color: purple; }
+.bg-pink      { background-color: pink; }
+.bg-brown     { background-color: brown; }
+.bg-cyan      { background-color: cyan; }
+.bg-magenta   { background-color: magenta; }
+.bg-lime      { background-color: lime; }
+.bg-teal      { background-color: teal; }
+.bg-navy      { background-color: navy; }
+.bg-maroon    { background-color: maroon; }
+.bg-olive     { background-color: olive; }
+.bg-silver    { background-color: silver; }
+.bg-gold      { background-color: gold; }
+.bg-lightgray { background-color: lightgray; }
+.bg-darkgray  { background-color: darkgray; }
+.bg-indigo    { background-color: indigo; }
+.bg-aqua      { background-color: aqua; }
+.bg-beige     { background-color: beige; }
+/*! ---------------- !*/
+/*? Text Colors */
+/*! ---------------- !*/
+.text-red       { color: red; }
+.text-blue      { color: blue; }
+.text-gray      { color: gray; }
+.text-black     { color: black; }
+.text-white     { color: white; }
+.text-green     { color: green; }
+.text-yellow    { color: yellow; }
+.text-orange    { color: orange; }
+.text-purple    { color: purple; }
+.text-pink      { color: pink; }
+.text-brown     { color: brown; }
+.text-cyan      { color: cyan; }
+.text-magenta   { color: magenta; }
+.text-lime      { color: lime; }
+.text-teal      { color: teal; }
+.text-navy      { color: navy; }
+.text-maroon    { color: maroon; }
+.text-olive     { color: olive; }
+.text-silver    { color: silver; }
+.text-gold      { color: gold; }
+.text-lightgray { color: lightgray; }
+.text-darkgray  { color: darkgray; }
+.text-indigo    { color: indigo; }
+.text-aqua      { color: aqua; }
+.text-beige     { color: beige; }
+/*! ---------------- !*/
+/*? Border Radius */
+/*! ---------------- !*/
+.rounded-sm   { border-radius: 4px; }   
+.rounded-md   { border-radius: 8px; }
+.rounded-lg   { border-radius: 12px; }
+.rounded-xl   { border-radius: 16px; }
+.rounded-2xl  { border-radius: 24px; }
+.rounded-3xl  { border-radius: 32px; }
+.rounded-full { border-radius: 9999px; }
+/*! ---------------- !*/
+/*? Border Utilities */
+/*! ---------------- !*/
+.border        { border: 1px solid #ddd; }
+.border-0      { border: 0; }
+.border-2      { border: 2px solid #ddd; }
+.border-4      { border: 4px solid #ddd; }
+.border-dashed { border-style: dashed; }
+.border-dotted { border-style: dotted; }
+.border-solid  { border-style: solid; }
+.border-red    { border-color: red; }
+.border-blue   { border-color: blue; }
+.border-gray   { border-color: gray; }
+/*! ---------------- !*/
+/*? Shadow Utilities */
+/*! ---------------- !*/
+.shadow-sm  { box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.shadow-md  { box-shadow: 0 4px 6px rgba(0,0,0,.15); }
+.shadow-lg  { box-shadow: 0 10px 15px rgba(0,0,0,.22); }
+.shadow-xl  { box-shadow: 0 20px 25px rgba(0,0,0,.30); }
+.shadow-none { box-shadow: none; }
+/*! ---------------- !*/
+/*? Position Utilities */
+/*! ---------------- !*/
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+.top-0    { top: 0; }
+.right-0  { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left: 0; }
+/*! ---------------- !*/
+/*? z-index Utilities */
+/*! ---------------- !*/
+.z-0    { z-index: 0; }
+.z-10   { z-index: 10; }
+.z-20   { z-index: 20; }
+.z-50   { z-index: 50; }
+.z-999  { z-index: 999; }
+/*! ---------------- !*/
+/*? cursor Utilities */
+/*! ---------------- !*/
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-wait    { cursor: wait; }
+.cursor-move    { cursor: move; }
+.cursor-not-allowed { cursor: not-allowed; }
+/*! ---------------- !*/
+/*? font Utilities */
+/*! ---------------- !*/
+.fs-12 { font-size: 12px; }
+.fs-14 { font-size: 14px; }
+.fs-16 { font-size: 16px; }
+.fs-18 { font-size: 18px; }
+.fs-20 { font-size: 20px; }
+.fw-100 { font-weight: 100; }
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+
+/*! ---------------- !*/
+/*? Html linkler */
+/*! ---------------- !*/
+
+/* TODO <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> --> Font awesome iconları ekler */

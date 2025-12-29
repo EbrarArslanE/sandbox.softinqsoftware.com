@@ -1,0 +1,127 @@
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255 255 255 / 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Modal içerik kutusu */
+  .modal-content {
+    background: rgba(255 255 255 / 0.12);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255 255 255 / 0.2);
+    color: white;
+    width: 90%;
+    max-width: 800px; /* LG genişlik */
+    min-width: 280px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Responsive genişlik ayarları */
+  @media (max-width: 992px) { /* md ve altı */
+    .modal-content {
+      max-width: 600px;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 576px) { /* sm */
+    .modal-content {
+      max-width: 90%;
+      padding: 16px;
+    }
+  }
+
+  /* Başlık */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  /* Kapatma butonu */
+  .close-btn {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+    padding: 0 8px;
+    transition: color 0.2s ease;
+  }
+
+  .close-btn:hover {
+    color: #f44336;
+  }
+
+  /* İçerik */
+  .modal-body {
+    flex-grow: 1;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  /* Footer */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .modal-footer button {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255 255 255 / 0.2);
+    color: white;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .modal-footer button:hover {
+    background: rgba(255 255 255 / 0.35);
+  }
+
+  /* Açılırken animasyon */
+  .modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .modal-content {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-overlay.show .modal-content {
+    transform: translateY(0);
+  }

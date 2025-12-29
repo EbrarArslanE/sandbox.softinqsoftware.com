@@ -1,0 +1,13 @@
+import mongoose from "mongoose";
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/sandboxsoftinq");
+    console.log("🍃 Mongo bağlandı");
+  } catch (err) {
+    console.error("❌ Mongo bağlantı hatası:", err);
+    process.exit(1);
+  }
+};
+
+export default connectDB;

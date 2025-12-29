@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1312,
+            "driver": "MySQL",
+            "name": "F_SOTFINQ_SOFT_PANEL",
+            "database": "SOFTINQ_DB",
+            "username": "admin",
+            "connectionTimeout": 3600000,
+            "password": ""
+        }
+    ]
+}

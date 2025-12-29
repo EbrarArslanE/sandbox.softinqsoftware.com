@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeler | Proje Listesi</title>
+    <link rel="stylesheet" href="/assets/css/temp.css">
+    <link rel="stylesheet" href="/assets/css/glass-table.css"/>
+    <link rel="stylesheet" href="/assets/css/variables.css"/>
+    <link rel="stylesheet" href="/assets/css/glass-modal.css"/>
+    <link rel="stylesheet" href="/assets/css/glass-elements.css"/>
+    <link rel="stylesheet" href="/assets/css/background.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+      <div class="background"></div>
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-apple"></i>
+            </div>
+            <nav class="menu" id="sidebar">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-compass"></i>
+                            <span>Explore</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-simple"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-message"></i>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-folder"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Bookmarks</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="profile">
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Profile">
+                </div>
+                <div class="user-info">
+                    <h3>---Kullanıcı adı---</h3>
+                    <p>---Rol---</p>
+                </div>
+            </div>
+        </aside>
+        <main class="content">
+            <header>
+                <h1>Projeler | Proje Listesi</h1>
+                <hr>
+                <!-- <p>Check out your project statistics for today</p> -->
+            </header>
+            <table class="glass-table">
+              <thead>
+                  <tr>
+                      <th class="text-center">Proje Adı</th>
+                      <th class="text-center">Proje Türü</th>
+                      <th class="text-center">Proje Yetkilisi</th>
+                      <th class="text-center">Başlangıc Tarihi</th>
+                      <th class="text-center">Bitiş Tarihi</th>
+                      <th class="text-center">Açıklama</th>
+                      <th class="text-center">Öncelik</th>
+                      <th class="text-center">Durum</th>
+                      <th>
+                        <div class="btn-group w-100">
+                          <button class="btn-add w-100" onclick="openModal()">Ekle+</button>
+                        </div>
+                      </th>
+                  </tr>
+              </thead>
+              <tbody id="projeTableBody">
+                  <!-- <tr>
+                    <td>1</td>
+                    <td>Ebocum</td>
+                    <td>Aktif</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Test User</td>
+                    <td>Pasif</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Deneme</td>
+                    <td>Aktif</td>
+                  </tr> -->
+              </tbody>
+          </table>
+
+        </main>
+    </div>
+    <div id="glassModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="modal-header">Modal Başlığı</h2>
+          <button class="close-btn" onclick="closeModal()">&times;</button>
+        </header>
+        <main class="modal-body">
+          <input type="hidden" id="e_id" value="">
+          <div class="w-100 d-flex flex-col">
+            <div class="w-100 d-flex flex-row gap-12">
+              <div class="w-50">
+                <label for="">Proje Adı <span class="text-red">*</span></label>
+                <input type="text" class="cam-input" id="e_proje_adi">
+              </div>
+              <div class="w-50">
+                <label for="">Proje Türü <span class="text-red">*</span></label>
+                <input type="text" class="cam-input" id="e_proje_turu">
+              </div>
+            </div>
+          
+            <div class="w-100 d-flex flex-row gap-12">
+              <div class="w-50">
+                <label for="">Başlangıç Tarihi <span class="text-red">*</span></label>
+                <input type="date" class="cam-input" id="e_baslangic_tarihi">
+              </div>
+
+              <div class="w-50">
+                <label for="">Bitiş Tarihi <span class="text-red">*</span></label>
+                <input type="date" class="cam-input" id="e_bitis_tarihi">
+              </div>
+            </div>
+            
+            <div class="w-100 d-flex flex-row gap-12">
+              <div class="w-100">
+                <label for="">Proje Yetkilisi</label>
+                <input type="text" class="cam-input" id="e_proje_yetkilisi">
+              </div>
+              
+            </div>
+            
+            <div class="w-100 d-flex flex-row gap-12">
+              <div class="w-50">
+                <label for="">Öncelik <span class="text-red">*</span></label>
+                <select class="cam-select" id="e_oncelik">
+                  <option value="" disabled selected>--seçiniz--</option>
+                  <option value="dusuk">Düşük</option>
+                  <option value="orta">Orta</option>
+                  <option value="yuksek">Yüksek</option>
+                </select>
+              </div>
+              
+              <div class="w-50">
+                <label for="">Durum <span class="text-red">*</span></label>
+                <select class="cam-select" id="e_durum">
+                  <option value="" disabled selected>--seçiniz--</option>
+                  <option value="aktif">Aktif</option>
+                  <option value="pasif">Pasif</option>
+                </select>
+              </div>
+            </div>
+            <div class="w-100">
+              <label for="">Açıklama</label>
+              <textarea class="cam-textarea" name="" id="e_aciklama" cols="30" rows="10"></textarea>
+            </div>
+
+          </div>
+        </main>
+        <footer class="modal-footer">
+          <button onclick="closeModal()">Kapat</button>
+          <button onclick="islemiKaydet()">Onayla</button>
+        </footer>
+      </div>
+    </div>
+    <script src="/assets/js/temp.js"></script>
+    <script src="/pages/Tanimlar/projeTanimlari/projeTanimlari.js"></script>
+</body>
+</html> 
