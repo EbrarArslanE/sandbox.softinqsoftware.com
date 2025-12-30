@@ -91,7 +91,7 @@ app.get("/projeler/projeListele", async (req, res) => {
 
 app.get("/gorevler/gorevListele", async (req, res) => {
   try {
-    const gorevler = await Gorev.find().sort({ createdAt: -1 });
+    const gorevler = await Gorevler.find().sort({ createdAt: -1 });
     res.json(gorevler);
   } catch (err) {
     res.status(500).json([]);

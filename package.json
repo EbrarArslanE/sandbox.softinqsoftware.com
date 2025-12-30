@@ -22,5 +22,8 @@
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "mongoose": "^9.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
   }
 }

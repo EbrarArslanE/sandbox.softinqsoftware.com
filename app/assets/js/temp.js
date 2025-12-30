@@ -79,5 +79,8 @@ function kullaniciTanimlari() {
 function projeTanimlari() {
     window.location.href = "/Tanimlar/projeTanimlari";
 }
+function gorevTanimlari() {
+    window.location.href = "/Tanimlar/gorevTanimlari";
+}
 // !---------*Router End*----------! //
 

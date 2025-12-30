@@ -19,7 +19,7 @@ const GorevlerSchema = new mongoose.Schema(
       trim: true
     },
 
-    e_proje_id: {
+    e_proje_bilgisi: {
       type: String,
       required: true,
       trim: true
