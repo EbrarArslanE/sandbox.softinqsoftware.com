@@ -19,46 +19,7 @@
             <div class="logo">
                 <i class="fab fa-apple"></i>
             </div>
-            <nav class="menu" id="sidebar">
-                <ul>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-compass"></i>
-                            <span>Explore</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-chart-simple"></i>
-                            <span>Analytics</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-message"></i>
-                            <span>Messages</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-folder"></i>
-                            <span>Projects</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-bookmark"></i>
-                            <span>Bookmarks</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <nav class="menu" id="sidebar"></nav>
             <div class="profile">
                 <div class="avatar">
                     <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Profile">
@@ -69,15 +30,41 @@
                 </div>
             </div>
         </aside>
+      <div class="w-100 d-flex flex-col">
+
+        <div class="card" style="border-radius: 0%;">
+          <div class="card-info w-100">
+            <h1>Projeler | Proje Listesi</h1>
+            <hr class="hr-cam w-100">
+            <span style="font-size:16px;">Tanımlar, Proje Listesi</span>
+          </div>
+        </div>
+
+
         <main class="content">
-            <header>
-                <h1>Projeler | Proje Listesi</h1>
-                <hr>
-                <!-- <p>Check out your project statistics for today</p> -->
-            </header>
-            <table class="glass-table">
-              <thead>
-                  <tr>
+            <div class="w-100 d-flex gap-12 flex-col">
+              <div class="card">
+                <div class="card-info w-100">
+                  <div class="d-flex flex-row items-end justify-end gap-12">
+                    <div class="w-80">
+                      <label>Arama:</label>
+                      <input type="text" class="cam-input" id="ARAMA">
+                    </div>
+
+                    <div class="w-20 h-50px d-flex items-end justify-end">
+                      <div class="btn-group w-100">
+                        <button class="btn-add w-100" style="height: 40px;">Filtrele <i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card">
+                <div class="card-info w-100">
+                <table class="glass-table">
+                  <thead>
+                    <tr>
                       <th class="text-center">Proje Adı</th>
                       <th class="text-center">Proje Türü</th>
                       <th class="text-center">Proje Yetkilisi</th>
@@ -88,31 +75,20 @@
                       <th class="text-center">Durum</th>
                       <th>
                         <div class="btn-group w-100">
-                          <button class="btn-add w-100" onclick="openModal()">Ekle+</button>
+                          <button class="btn-add w-100" onclick="openModal()">Ekle <i class="fas fa-circle-plus"></i></button>
                         </div>
                       </th>
-                  </tr>
-              </thead>
-              <tbody id="projeTableBody">
-                  <!-- <tr>
-                    <td>1</td>
-                    <td>Ebocum</td>
-                    <td>Aktif</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Test User</td>
-                    <td>Pasif</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Deneme</td>
-                    <td>Aktif</td>
-                  </tr> -->
-              </tbody>
-          </table>
-
+                    </tr>
+                    </thead>
+                    <tbody id="projeTableBody"></tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+            
+  
         </main>
+      </div>
     </div>
     <div id="glassModal" class="modal-overlay hidden">
       <div class="modal-content">

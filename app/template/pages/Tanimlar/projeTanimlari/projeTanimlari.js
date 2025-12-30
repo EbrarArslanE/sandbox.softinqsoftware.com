@@ -31,13 +31,13 @@ async function projeListele() {
       const tr = document.createElement("tr");
 
       tr.innerHTML = `
-        <td>${user.e_proje_adi}</td>
-        <td>${user.e_proje_turu}</td>
-        <td>${user.e_proje_yetkilisi}</td>
-        <td>${new Date(user.e_baslangic_tarihi).toLocaleDateString()}</td>
-        <td>${user.e_bitis_tarihi ? new Date(user.e_bitis_tarihi).toLocaleDateString() : "-"}</td>
-        <td>${user.e_aciklama}</td>
-        <td>${user.e_oncelik}</td>
+        <td class="">${user.e_proje_adi}</td>
+        <td class="">${user.e_proje_turu}</td>
+        <td class="">${user.e_proje_yetkilisi}</td>
+        <td class="">${new Date(user.e_baslangic_tarihi).toLocaleDateString()}</td>
+        <td class="">${user.e_bitis_tarihi ? new Date(user.e_bitis_tarihi).toLocaleDateString() : "-"}</td>
+        <td class="">${user.e_aciklama}</td>
+        <td class="">${user.e_oncelik}</td>
         <td>
           <span class="badge bg-${user.e_durum === "aktif" ? "success" : "warning"}">
             ${user.e_durum}
@@ -45,12 +45,8 @@ async function projeListele() {
         </td>
         <td>
         <div class="btn-group d-flex flex-row gap-12 w-100">
-            <button class="btn-edit w-50" onclick="kullaniciDuzenle('${user._id}')">
-                Düzenle
-            </button>
-
-            <button class="btn-delete w-50" onclick="kullaniciSil('${user._id}')">
-              Sil
+            <button class="btn-edit w-100" onclick="projeDuzenle('${user._id}')">
+                Detay <i class="fas fa-eye"></i>
             </button>
         </div>
         </td>
@@ -63,7 +59,13 @@ async function projeListele() {
     console.error("Kullanıcılar alınamadı:", err);
   }
 }
-
+{/* <button class="btn-edit w-50" onclick="projeDuzenle('${user._id}')">
+  Düzenle <i class="fas fa-edit"></i>
+</button> 
+<button class="btn-delete w-50" onclick="projeSil('${user._id}')">
+  Sil <i class="fas fa-trash"></i>
+</button>
+*/}
 async function projeEkle() {
   // Burada direk modal başlığını değiştir
   const modalHeader = document.getElementById("modal-header");

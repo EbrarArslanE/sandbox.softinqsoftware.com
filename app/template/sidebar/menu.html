@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/assets/css/glass-elements.css"/>
+    <link rel="stylesheet" href="/assets/css/variables.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
 </head>
 <body>
       <nav class="menu">
         <ul>
-            <label for="">Ana Sayfa</label>
-            <hr>
             <li onclick="anasayfa()">
                 <a>
                     <i class="fas fa-home"></i>
                     <span>Ana Sayfa</span>
                 </a>
             </li>
+            <hr class="hr-cam" />
             <label for="">Tanımlar</label>
-            <hr>
+            <hr class="hr-cam" />
             <li onclick="kullaniciTanimlari()">
                 <a>
                     <i class="fas fa-user"></i>
@@ -33,28 +34,14 @@
                     <span>Proje Tanımları</span>
                 </a>
             </li>
-            <label for="">Ayarlar</label>
-            <hr>
-            <li>
+            <li onclick="gorevTanimlari()">
                 <a href="#">
-                    <i class="fas fa-message"></i>
-                    <span>Mesajlar ve Gruplar</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-folder"></i>
-                    <span>Dosyalar</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-bookmark"></i>
-                    <span>Yer İşaretleri</span>
+                    <i class="fas fa-list-check"></i>
+                    <span>Görev Tanımları</span>
                 </a>
             </li>
             <label for="">Sosyal</label>
-            <hr>
+            <hr class="hr-cam" />
             <li>
                 <a href="#">
                     <i class="fas fa-message"></i>
@@ -69,8 +56,18 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fas fa-bookmark"></i>
-                    <span>Yer İşaretleri</span>
+                    <i class="fab fa-youtube"></i>
+                    <span>OurTube</span>
+                </a>
+            </li>
+            <div class="d-flex flex-col">
+                <label>Ayarlar</label>
+                <hr class="hr-cam" />
+            </div>
+            <li>
+                <a href="#">
+                    <i class="fas fa-gear"></i>
+                    <span>Sistem Ayarları</span>
                 </a>
             </li>
         </ul>

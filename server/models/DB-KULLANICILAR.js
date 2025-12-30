@@ -17,10 +17,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    e_rol: {
+    e_kullanici_adi: {
       type: String,
-      enum: ["admin", "editor", "user"],
-      default: "user"
+      required: true,
+      unique: true,
+      lowercase: true
     },
     e_durum: {
       type: String,
@@ -28,13 +29,10 @@ const UserSchema = new mongoose.Schema(
       default: "aktif"
     }
   },
-  {
-    timestamps: true
-  }
 );
 
 export default mongoose.model(
   "User",
   UserSchema,
-  "DB_L_KULLANICILAR"
+  "DB_KULLANICILAR_L"
 );

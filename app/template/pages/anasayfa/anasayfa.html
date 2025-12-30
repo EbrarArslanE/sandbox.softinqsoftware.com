@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple-Style Glassmorphism Sidebar</title>
+    <title>Ana Sayfa | Ana Sayfa</title>
     <link rel="stylesheet" href="/assets/css/temp.css">
     <link rel="stylesheet" href="/assets/css/glass-table.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/background.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -44,6 +45,7 @@
                         <p>Completed Tasks</p>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-icon">
                         <i class="fas fa-clock"></i>
@@ -53,46 +55,56 @@
                         <p>Pending Tasks</p>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="card-info">
                         <h3>7</h3>
-                        <p>Active Projects</p>
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-info w-100">
+                        <h3>Proje Listesi</h3>
+                        <hr class="hr-cam" />
+                      <table class="glass-table">
+                        <thead>
+                            <tr>
+                              <th>Proje Adı</th>
+                              <th>Proje Türü</th>
+                              <th>Başlangıç Tarihi</th>
+                              <th>Bitiş Tarihi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projeTableBody">
+                        </tbody>
+                      </table>                          
+                    </div>
+                </div>
+
+                <div class="card">
+                   <div class="card-info w-100">
+                      <h3>Kullanıcı Listesi</h3>
+                      <hr class="hr-cam" />
+                      <table class="glass-table">
+                        <thead>
+                            <tr>
+                              <th>Kullanıcı Adı</th>
+                              <th>Ad Soyad</th>
+                              <th>Mail</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                        </tbody>
+                      </table>
                     </div>
                 </div>
             </div>
-            <table class="glass-table">
-              <thead>
-                  <tr>
-                      <th>ID</th>
-                      <th>Ad Soyad</th>
-                      <th>Mail</th>
-                      <th>Rol</th>
-                      <th>Durum</th>
-                      <th></th>
-                  </tr>
-              </thead>
-              <tbody id="userTableBody">
-                  <tr>
-                    <td>1</td>
-                    <td>Ebocum</td>
-                    <td>Aktif</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Test User</td>
-                    <td>Pasif</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Deneme</td>
-                    <td>Aktif</td>
-                  </tr>
-              </tbody>
-          </table>
-
         </main>
     </div>
     <script src="/assets/js/temp.js"></script>

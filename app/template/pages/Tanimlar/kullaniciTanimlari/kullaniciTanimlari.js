@@ -31,13 +31,9 @@ async function kullaniciListele() {
       const tr = document.createElement("tr");
 
       tr.innerHTML = `
+      <td>${user.e_kullanici_adi}</td>
         <td>${user.e_ad_soyad}</td>
         <td>${user.e_mail}</td>
-        <td>
-          <span class="badge bg-${user.e_rol === "admin" ? "danger" : "secondary"}">
-            ${user.e_rol}
-          </span>
-        </td>
         <td>
           <span class="badge bg-${user.e_durum === "aktif" ? "success" : "warning"}">
             ${user.e_durum}
@@ -45,13 +41,13 @@ async function kullaniciListele() {
         </td>
         <td>
         <div class="btn-group d-flex flex-row gap-12 w-100">
-            <button class="btn-edit w-50" onclick="kullaniciDuzenle('${user._id}')">
-                Düzenle
-            </button>
+          <button class="btn-edit w-50" onclick="kullaniciDuzenle('${user._id}')">
+            Düzenle <i class="fas fa-edit"></i>
+          </button>
 
-            <button class="btn-delete w-50" onclick="kullaniciSil('${user._id}')">
-              Sil
-            </button>
+          <button class="btn-delete w-50" onclick="kullaniciSil('${user._id}')">
+            Sil <i class="fas fa-trash"></i>
+          </button>
         </div>
         </td>
       `;

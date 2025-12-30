@@ -1,6 +1,9 @@
-document.addEventListener("DOMContentLoaded", loadUsers);
+document.addEventListener("DOMContentLoaded", () => {
+  kullaniciListele();
+  projeListele();
+});
 
-async function loadUsers() {
+async function kullaniciListele() {
   try {
     const res = await fetch("/kullanicilar/kullaniciListele");
     const users = await res.json();
@@ -8,37 +11,41 @@ async function loadUsers() {
     const tbody = document.getElementById("userTableBody");
     tbody.innerHTML = "";
 
-    users.forEach((user, index) => {
+    users.forEach((user) => {
       const tr = document.createElement("tr");
-
       tr.innerHTML = `
-        <td>${index + 1}</td>
+        <td>${user.e_kullanici_adi}</td>
         <td>${user.e_ad_soyad}</td>
         <td>${user.e_mail}</td>
-        <td>
-          <span class="badge bg-${user.e_rol === "admin" ? "danger" : "secondary"}">
-            ${user.e_rol}
-          </span>
-        </td>
-        <td>
-          <span class="badge bg-${user.e_durum === "aktif" ? "success" : "warning"}">
-            ${user.e_durum}
-          </span>
-        </td>
-        <td>
-          <button class="btn btn-sm btn-primary" onclick="editUser('${user._id}')">
-            Düzenle
-          </button>
-          <button class="btn btn-sm btn-danger" onclick="deleteUser('${user._id}')">
-            Sil
-          </button>
-        </td>
       `;
-
       tbody.appendChild(tr);
     });
 
   } catch (err) {
     console.error("Kullanıcılar alınamadı:", err);
+  }
+}
+
+async function projeListele() {
+  try {
+    const res = await fetch("/projeler/projeListele");
+    const projects = await res.json();
+
+    const tbody = document.getElementById("projeTableBody");
+    tbody.innerHTML = "";
+
+    projects.forEach((project) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${project.e_proje_adi}</td>
+        <td>${project.e_proje_turu}</td>
+        <td>${new Date(project.e_baslangic_tarihi).toLocaleDateString()}</td>
+        <td>${project.e_bitis_tarihi ? new Date(project.e_bitis_tarihi).toLocaleDateString() : "-"}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+  } catch (err) {
+    console.error("Projeler alınamadı:", err);
   }
 }
