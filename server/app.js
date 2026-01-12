@@ -271,3 +271,7 @@ app.listen(PORT, () => {
   console.clear()
   console.log(`🟢 Server started: http://localhost:${PORT}`);
 });
+
+if (process.env.NODE_ENV === 'development') {
+  require('./bs');
+}

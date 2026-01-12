@@ -30,12 +30,12 @@
                 </div>
             </div>
         </aside>
-        <main class="content">
+        <main class="content gap-32 d-flex flex-col">
             <header>
                 <h1>Tekrar Hoşgeldin, <span id="girisYapanKullanici">e_ad_soyad</span></h1>
                 <p>Check out your project statistics for today</p>
             </header>
-            <div class="card-container">
+            <!-- <div class="card-container">
                 <div class="card">
                     <div class="card-icon">
                         <i class="fas fa-check-circle"></i>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
             <div class="card-container">
                 <div class="card">
                     <div class="card-info w-100">
@@ -88,23 +88,45 @@
                 </div>
 
                 <div class="card">
-                   <div class="card-info w-100">
-                      <h3>Kullanıcı Listesi</h3>
-                      <hr class="hr-cam" />
-                      <table class="glass-table">
-                        <thead>
-                            <tr>
-                              <th>Kullanıcı Adı</th>
-                              <th>Ad Soyad</th>
-                              <th>Mail</th>
-                            </tr>
-                        </thead>
-                        <tbody id="userTableBody">
-                        </tbody>
-                      </table>
-                    </div>
+                  <div class="card-info w-100">
+                    <h3>Kullanıcı Listesi</h3>
+                    <hr class="hr-cam" />
+                    <table class="glass-table">
+                      <thead>
+                          <tr>
+                            <th>Kullanıcı Adı</th>
+                            <th>Ad Soyad</th>
+                            <th>Mail</th>
+                          </tr>
+                      </thead>
+                      <tbody id="userTableBody">
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-            </div>
+              </div>
+
+              <div class="card">
+                <div class="card-info w-100">
+                    <h3>Görev Listesi</h3>
+                    <hr class="hr-cam" />
+                  <table class="glass-table">
+                    <thead>
+                        <tr>
+                          <th class="text-center">Proje Adı</th>
+                          <th class="text-center">Görev Başlığı</th>
+                          <th class="text-center">Görevli Kullanıcı</th>
+                          <th class="text-center">Atayan Kullanıcı Kullanıcı</th>
+                          <th class="text-center">Başlangıç Tarihi</th>
+                          <th class="text-center">Bitiş Tarihi</th>
+                          <th class="text-center">Durum - Öncelik</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gorevlerTableBody">
+                    </tbody>
+                  </table>                          
+                </div>
+              </div>                
         </main>
     </div>
     <script src="/assets/js/temp.js"></script>

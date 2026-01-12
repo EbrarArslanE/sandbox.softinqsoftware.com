@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", gorevListele);
         <td>
         <div class="btn-group d-flex flex-row gap-12 w-100">
           <button class="btn-edit w-50" onclick="kullaniciDuzenle('${user._id}')">
-            Düzenle <i class="fas fa-edit"></i>
+             <i class="fas fa-edit"></i>
           </button>
 
           <button class="btn-delete w-50" onclick="kullaniciSil('${user._id}')">
-            Sil <i class="fas fa-trash"></i>
+             <i class="fas fa-trash"></i>
           </button>
         </div>
         </td>
