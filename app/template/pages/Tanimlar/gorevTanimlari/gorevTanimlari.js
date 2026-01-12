@@ -12,11 +12,13 @@ document.addEventListener("DOMContentLoaded", gorevListele);
   function kullaniciTanimlariModal() {
     modalKullaniciTanimlari.classList.remove("hidden");
     modalKullaniciTanimlari.classList.add("show");
+    kullaniciListele()
   }
 
   function projeTanimlariModal() {
     modalProjeTanimlari.classList.remove("hidden");
     modalProjeTanimlari.classList.add("show");
+    projeListele()
   }
 
   function gorevTanimlariModalKapat() {
@@ -90,11 +92,13 @@ document.addEventListener("DOMContentLoaded", gorevListele);
         <td>${user.e_ad_soyad}</td>
         <td>${user.e_mail}</td>
         <td>
-          <span class="badge bg-${user.e_durum === "aktif" ? "success" : "warning"}">
-            ${user.e_durum}
-          </span>
+          <div class="btn-group">
+            <button class="btn-add" onclick="kullaniciSec('${user._id}')">
+              Seç <i class="fas fa-check"></i>
+            </button>
+          </div>
         </td>
-      `;
+        `;
 
       tbody.appendChild(tr);
     });
@@ -107,26 +111,28 @@ document.addEventListener("DOMContentLoaded", gorevListele);
   async function projeListele() {
   try {
     const res = await fetch("/projeler/projeListele");
-    const users = await res.json();
+    const projeler = await res.json();
 
     const tbody = document.getElementById("projeTableBody");
     tbody.innerHTML = "";
 
-    users.forEach((user, index) => {
+    projeler.forEach((proje, index) => {
       const tr = document.createElement("tr");
 
       tr.innerHTML = `
-        <td class="">${user.e_proje_adi}</td>
-        <td class="">${user.e_proje_turu}</td>
-        <td class="">${user.e_proje_yetkilisi}</td>
-        <td class="">${new Date(user.e_baslangic_tarihi).toLocaleDateString()}</td>
-        <td class="">${user.e_bitis_tarihi ? new Date(user.e_bitis_tarihi).toLocaleDateString() : "-"}</td>
-        <td class="">${user.e_aciklama}</td>
-        <td class="">${user.e_oncelik}</td>
+        <td class="">${proje.e_proje_adi}</td>
+        <td class="">${proje.e_proje_turu}</td>
+        <td class="">${proje.e_proje_yetkilisi}</td>
+        <td class="">${new Date(proje.e_baslangic_tarihi).toLocaleDateString()}</td>
+        <td class="">${proje.e_bitis_tarihi ? new Date(proje.e_bitis_tarihi).toLocaleDateString() : "-"}</td>
+        <td class="">${proje.e_aciklama}</td>
+        <td class="">${proje.e_oncelik}</td>
         <td>
-          <span class="badge bg-${user.e_durum === "aktif" ? "success" : "warning"}">
-            ${user.e_durum}
-          </span>
+          <div class="btn-group">
+            <button class="btn-add" onclick="projeSec('${proje._id}')">
+              Seç <i class="fas fa-check"></i>
+            </button>
+          </div>
         </td>
       `;
 
@@ -324,3 +330,23 @@ document.addEventListener("DOMContentLoaded", gorevListele);
     }
   }
 
+function projeSec(projeId) {
+    // Proje ID'yi görev formuna yaz
+    document.getElementById("e_proje_id").value = projeId;
+
+    // Proje modalını kapat
+    projeTanimlariModalKapat();
+
+    // (opsiyonel) görsel geri bildirim
+    console.log("Seçilen Proje ID:", projeId);
+}
+
+function kullaniciSec(kullaniciId) {
+    // Atanan kullanıcıyı ayarla
+    document.getElementById("e_atanan_kullanici").value = kullaniciId;
+
+    // Kullanıcı modalını kapat
+    kullaniciTanimlariModalKapat();
+
+    console.log("Seçilen Kullanıcı ID:", kullaniciId);
+}

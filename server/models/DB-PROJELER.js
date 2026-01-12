@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const projeSchema = new mongoose.Schema(
   {
-    e_proje_adi: {
+    e_proje_id: {
       type: String,
       required: true,
       trim: true
