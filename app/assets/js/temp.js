@@ -82,5 +82,8 @@ function projeTanimlari() {
 function gorevTanimlari() {
     window.location.href = "/Tanimlar/gorevTanimlari";
 }
+function ourTube() {
+    window.location.href = "/sosyal/OurTube";
+}
 // !---------*Router End*----------! //
 

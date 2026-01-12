@@ -33,6 +33,7 @@ app.use("/menu",  express.static(path.join(__dirname, "../app/assets")));
 app.use("/template",express.static(path.join(__dirname, "../app/template")));
 app.use("/pages",express.static(path.join(__dirname, "../app/template/pages/")));
 app.use("/Tanimlar",express.static(path.join(__dirname, "../app/template/pages/Tanimlar")));
+app.use("/Sosyal",express.static(path.join(__dirname, "../app/template/pages/sosyal")));
 
 
 
