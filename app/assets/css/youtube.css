@@ -104,6 +104,7 @@
     color: white;
     font-weight: 600;
     transition: background 0.3s ease;
+    height: 100%;
 }
 
 /* QUEUE */

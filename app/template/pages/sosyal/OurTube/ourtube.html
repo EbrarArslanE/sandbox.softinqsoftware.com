@@ -24,9 +24,9 @@
       <div class="w-100 d-flex flex-col">
         <div class="card" style="border-radius: 0%;">
           <div class="card-info w-100">
-            <h1>Görevler | Görev Listesi</h1>
+            <h1>OurTube | OurTube</h1>
             <hr class="hr-cam w-100">
-            <span style="font-size:16px;">Tanımlar, Görev Listesi</span>
+            <span style="font-size:16px;">Sosyal, OurTube</span>
           </div>
         </div>
         <main class="content">
@@ -35,19 +35,15 @@
             <div class="w-100 d-flex flex-row gap-12">
               <div class="w-50 d-flex gap-12 flex-col">
                 
-              <div class="w-100 d-flex flex-col gap-12">
-                <div class="w-100 d-flex flex-row gap-12">
-                  
-                  <div class="yt-input w-50">
-                    <input class="cam-input" id="ytLink" placeholder="YouTube link yapıştır...">
-                  </div>
-                  <div class="yt-input w-50">
-                    <input class="cam-input" id="ytSearch" placeholder="YouTube Araması Yap...">
-                  </div>
+              <div class="w-100 d-flex flex-row gap-12">  
+                <div class="yt-input w-80">
+                  <input class="cam-input" id="ytLink" placeholder="YouTube link yapıştır...">
                 </div>
-
-                <div class="yt-input w-100">
-                    <button class="glass-btn w-100" onclick="ytLoad()">Göster - Ara</button>
+                <div class="yt-input w-80">
+                  <input class="cam-input" id="ytSearch" placeholder="YouTube Araması Yap...">
+                </div>
+                <div class="yt-input w-20 h-100">
+                    <button class="glass-btn w-100" onclick="ytLoad()"><i class="fab fa-youtube"></i></button>
                 </div>
               </div>
 
@@ -110,55 +106,89 @@
                 
                 <div class="card">
                   <div class="card-info d-flex gap-12 flex-row w-100">
-                   <div class="card w-50">
+                   
+                  <div class="card w-50">
                     <div class="card-info w-100">
-                      <span>Sıradaki</span>
+                      <div class="d-flex flex-col w-100" style="height:605px;">
+                       
+                        <div class="d-flex flex-col item-start justify-start w-100 h-10">
+                          <span>Sıradaki</span>
+                          <hr class="hr-cam">
+                        </div>
+
+                        <div class="d-flex w-100 h-90">
+                          <div class="queue-list">
+                          
+                            <div class="queue-item">
+                              <img src="https://i.ytimg.com/vi/oHg5SJYRHA0/hqdefault.jpg">
+                              <div>
+                                <h4>Never Gonna Give You Up</h4>
+                                <p>Rick Astley</p>
+                              </div>
+                              <button class="queue-play">
+                                <i class="fa-solid fa-play"></i>
+                              </button>
+                            </div>
+                          
+                            <div class="queue-item">
+                              <img src="https://i.ytimg.com/vi/kXYiU_JCYtU/hqdefault.jpg">
+                              <div>
+                                <h4>Numb</h4>
+                                <p>Linkin Park</p>
+                              </div>
+                              <button class="queue-play">
+                                <i class="fa-solid fa-play"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card w-50">
+                    <div class="card-info w-100">
+                      <span>Aktif Kullanıcılar</span>
                       <hr class="hr-cam">
                     
-                      <div class="queue-list">
+                      <div class="user-list">
                       
-                        <div class="queue-item">
-                          <img src="https://i.ytimg.com/vi/oHg5SJYRHA0/hqdefault.jpg">
+                        <div class="user-item">
+                          <img src="https://i.pravatar.cc/40?img=12">
                           <div>
-                            <h4>Never Gonna Give You Up</h4>
-                            <p>Rick Astley</p>
+                            <h4>Ebos</h4>
+                            <p>Owner</p>
                           </div>
-                          <button class="queue-play">
-                            <i class="fa-solid fa-play"></i>
-                          </button>
+                          <span class="online"></span>
                         </div>
                       
-                        <div class="queue-item">
-                          <img src="https://i.ytimg.com/vi/kXYiU_JCYtU/hqdefault.jpg">
+                        <div class="user-item">
+                          <img src="https://i.pravatar.cc/40?img=5">
                           <div>
-                            <h4>Numb</h4>
-                            <p>Linkin Park</p>
+                            <h4>Mert</h4>
+                            <p>Moderator</p>
                           </div>
-                          <button class="queue-play">
-                            <i class="fa-solid fa-play"></i>
-                          </button>
+                          <span class="online"></span>
+                        </div>
+                      
+                        <div class="user-item">
+                          <img src="https://i.pravatar.cc/40?img=8">
+                          <div>
+                            <h4>Furkan</h4>
+                            <p>İzleyici</p>
+                          </div>
+                          <span class="online"></span>
                         </div>
                       
                       </div>
                     
                     </div>
                   </div>
-
-
-                    <div class="card w-50">
-                      <div class="card-info w-100">
-                        <span>Aktif Kullanıcılar</span>
-                        <hr class="hr-cam">
-                      </div>
-                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
-  
-  
         </main>
       </div>
     </div>
