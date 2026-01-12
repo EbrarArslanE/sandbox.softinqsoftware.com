@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import { fileURLToPath } from "url";
+import Swal from 'sweetalert2'
 
 //Database importları 
 import connectDB from "./db.js";
@@ -54,6 +55,10 @@ app.get("/Tanimlar/projeTanimlari", (req, res) => {
 
 app.get("/Tanimlar/gorevTanimlari", (req, res) => {
   res.sendFile(path.join(__dirname, "../app/template/pages/Tanimlar/gorevTanimlari/gorevTanimlari.html"));
+});
+
+app.get("/OurTube", (req, res) => {
+  res.sendFile(path.join(__dirname, "../app/template/pages/sosyal/OurTube/OurTube.html"));
 });
 
 // !Ayarlar
@@ -261,6 +266,48 @@ app.delete("/gorevler/gorevSil/:id", async (req, res) => {
   }
 });
 
+
+app.post("/kullanicilar/login", async (req, res) => {
+  try {
+    const { e_kullanici_adi, e_sifre } = req.body;
+
+    if (!e_kullanici_adi || !e_sifre) {
+      return res.status(400).json({ message: "Kullanıcı adı ve şifre zorunlu!" });
+    }
+
+    // Kullanıcıyı çekiyoruz
+    const user = await User.findOne({
+      e_kullanici_adi: e_kullanici_adi.toLowerCase(),
+      e_durum: "aktif"
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "Kullanıcı bulunamadı ya da pasif!" });
+    }
+
+    // Şifre düz tutuluyorsa:
+    if (user.e_sifre !== e_sifre) {
+      return res.status(400).json({ message: "Şifre yanlış!" });
+    }
+
+    // Eğer ileride bcrypt yaparsan:
+    // const sifreDogruMu = await bcrypt.compare(e_sifre, user.e_sifre);
+
+    res.json({
+      message: "Giriş başarılı",
+      user: {
+        id: user._id,
+        ad: user.e_ad_soyad,
+        mail: user.e_mail,
+        kullaniciAdi: user.e_kullanici_adi
+      }
+    });
+
+  } catch (err) {
+    console.log("LOGIN ERROR:", err);
+    res.status(500).json({ message: "Sunucu hatası" });
+  }
+});
 /* ===============================TEST================================ */
 app.get("/api/test", (req, res) => {
   res.json({ message: "Backend ayakta 🚀 (ESM)" });

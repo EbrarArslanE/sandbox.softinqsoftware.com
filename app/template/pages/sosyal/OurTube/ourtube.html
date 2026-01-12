@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görevler | Görev Listesi</title>
+    <link rel="stylesheet" href="/assets/css/temp.css">
+    <link rel="stylesheet" href="/assets/css/glass-table.css"/>
+    <link rel="stylesheet" href="/assets/css/variables.css"/>
+    <link rel="stylesheet" href="/assets/css/glass-modal.css"/>
+    <link rel="stylesheet" href="/assets/css/glass-elements.css"/>
+    <link rel="stylesheet" href="/assets/css/youtube.css"/>
+    <link rel="stylesheet" href="/assets/css/background.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-apple"></i>
+            </div>
+            <nav class="menu" id="sidebar"></nav>
+        </aside>
+      <div class="w-100 d-flex flex-col">
+        <div class="card" style="border-radius: 0%;">
+          <div class="card-info w-100">
+            <h1>Görevler | Görev Listesi</h1>
+            <hr class="hr-cam w-100">
+            <span style="font-size:16px;">Tanımlar, Görev Listesi</span>
+          </div>
+        </div>
+        <main class="content">
+          <div class="w-100 d-flex flex-col gap-12">
+            
+            <div class="w-100 d-flex flex-row gap-12">
+              <div class="w-50 d-flex gap-12 flex-col">
+                
+              <div class="w-100 d-flex flex-col gap-12">
+                <div class="w-100 d-flex flex-row gap-12">
+                  
+                  <div class="yt-input w-50">
+                    <input class="cam-input" id="ytLink" placeholder="YouTube link yapıştır...">
+                  </div>
+                  <div class="yt-input w-50">
+                    <input class="cam-input" id="ytSearch" placeholder="YouTube Araması Yap...">
+                  </div>
+                </div>
+
+                <div class="yt-input w-100">
+                    <button class="glass-btn w-100" onclick="ytLoad()">Göster - Ara</button>
+                </div>
+              </div>
+
+                <div class="card">
+                  <div class="card-info w-100">
+                    <div class="yt-wrapper">
+                    
+                      <div class="yt-header">
+                          <h2>🎥 OurTube</h2>
+                          <p>Video izleme alanı — Ortak İzleme Odası</p>
+                      </div>
+                    
+                      <div class="yt-player">
+                          <iframe id="ytFrame" allowfullscreen></iframe>
+                      </div>
+                    
+                      <!-- PLAYER CONTROLS -->
+                      <div class="yt-controls">
+                      
+                          <div class="progress-area">
+                              <div class="progress-track">
+                                  <div class="progress-bar" id="progressBar" style="width: 35%;"></div>
+                              </div>
+                            
+                              <div class="time">
+                                  <span id="currentTime">00:00</span>
+                                  <span id="totalTime">00:00</span>
+                              </div>
+                          </div>
+                        
+                          <div class="control-buttons">
+                          
+                              <button class="ctrl-btn" id="prevBtn">
+                                  <i class="fa-solid fa-backward"></i>
+                              </button>
+                            
+                              <button class="ctrl-btn" id="playBtn">
+                                  <i class="fa-solid fa-play"></i>
+                              </button>
+                            
+                              <button class="ctrl-btn" id="nextBtn">
+                                  <i class="fa-solid fa-forward"></i>
+                              </button>
+                            
+                              <div class="volume">
+                                  <i class="fa-solid fa-volume-high"></i>
+                                  <input type="range" min="0" max="100" value="60" id="volumeRange">
+                              </div>
+                            
+                          </div>
+                        
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="w-50 d-flex gap-12 flex-col">
+                
+                <div class="card">
+                  <div class="card-info d-flex gap-12 flex-row w-100">
+                   <div class="card w-50">
+                    <div class="card-info w-100">
+                      <span>Sıradaki</span>
+                      <hr class="hr-cam">
+                    
+                      <div class="queue-list">
+                      
+                        <div class="queue-item">
+                          <img src="https://i.ytimg.com/vi/oHg5SJYRHA0/hqdefault.jpg">
+                          <div>
+                            <h4>Never Gonna Give You Up</h4>
+                            <p>Rick Astley</p>
+                          </div>
+                          <button class="queue-play">
+                            <i class="fa-solid fa-play"></i>
+                          </button>
+                        </div>
+                      
+                        <div class="queue-item">
+                          <img src="https://i.ytimg.com/vi/kXYiU_JCYtU/hqdefault.jpg">
+                          <div>
+                            <h4>Numb</h4>
+                            <p>Linkin Park</p>
+                          </div>
+                          <button class="queue-play">
+                            <i class="fa-solid fa-play"></i>
+                          </button>
+                        </div>
+                      
+                      </div>
+                    
+                    </div>
+                  </div>
+
+
+                    <div class="card w-50">
+                      <div class="card-info w-100">
+                        <span>Aktif Kullanıcılar</span>
+                        <hr class="hr-cam">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+  
+  
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/js/temp.js"></script>
+    <script src="/pages/sosyal/OurTube/ourtube.js"></script>
+</body>
+</html> 

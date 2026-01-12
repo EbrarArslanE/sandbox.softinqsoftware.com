@@ -21,7 +21,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
-    "mongoose": "^9.0.2"
+    "mongoose": "^9.0.2",
+    "sweetalert2": "^11.26.17"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4"

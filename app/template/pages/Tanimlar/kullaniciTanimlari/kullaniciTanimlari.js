@@ -154,7 +154,14 @@ async function kullaniciSil(id) {
 
     if (!res.ok) throw new Error("Silme işlemi başarısız");
 
-    alert("Kullanıcı başarıyla silindi.");
+    Swal.fire({
+      title: "Kullanıcı başarıyla silindi!",
+      icon: "success",
+      showConfirmButton: false,   
+      timer: 1500,                
+      timerProgressBar: true
+    });
+    
     kullaniciListele(); // Listeyi güncelle
   } catch (err) {
     console.error(err);
@@ -202,7 +209,14 @@ async function islemiKaydet() {
 
     if (!res.ok) throw new Error(id ? "Güncelleme başarısız!" : "Kullanıcı eklenemedi!");
 
-    alert(id ? "Kullanıcı güncellendi." : "Kullanıcı başarıyla eklendi.");
+    Swal.fire({
+      title: id ? "Kullanıcı güncellendi." : "Kullanıcı başarıyla eklendi.",
+      icon: "success",
+      showConfirmButton: false,   
+      timer: 1500,                
+      timerProgressBar: true
+    });
+
     temizleForm();
     kullaniciListele();
     closeModal();

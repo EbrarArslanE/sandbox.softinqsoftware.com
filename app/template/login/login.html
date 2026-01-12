@@ -28,16 +28,16 @@
 					<div class="h-65 w-100 d-flex flex-col items-center justify-center">
 						<div class="form-group w-100">
 						  <label>Kullanıcı Adı</label>
-						  <input type="email" placeholder="Kullanıcı Adı" />
+						  <input type="text" id="username" placeholder="Kullanıcı Adı" />
 						</div>
 				  
 						<div class="form-group w-100">
 						  <label>Şifre</label>
-						  <input type="password" placeholder="••••••••" />
+						  <input type="password" id="password" placeholder="••••••••" />
 						</div>
 
 						<div class="form-group w-30">
-              <button class="login-btn">Giriş Yap</button>
+              <button class="login-btn" onclick="login()">Giriş Yap</button>
 						</div>
 				  
 					</div>
@@ -57,4 +57,6 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/app/template/login/login.js"></script>
 </html>
