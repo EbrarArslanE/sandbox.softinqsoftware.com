@@ -14,7 +14,13 @@ async function login() {
   const data = await res.json();
 
   if (!res.ok) {
-    alert(data.message);
+    Swal.fire({
+      title: data.message || "Giriş başarısız!",
+      icon: "error",
+      showConfirmButton: false,   
+      timer: 1500,                
+      timerProgressBar: true
+    });
     return;
   }
 
