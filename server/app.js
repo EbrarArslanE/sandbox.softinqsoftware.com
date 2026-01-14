@@ -3,6 +3,10 @@ import path from "path";
 import cors from "cors";
 import { fileURLToPath } from "url";
 import Swal from 'sweetalert2'
+import chalk from "chalk"
+import boxen from "boxen"
+// import gradient from "gradient-string"
+// import figlet from "figlet"
 
 //Database importları 
 import connectDB from "./db.js";
@@ -317,9 +321,22 @@ app.get("/api/test", (req, res) => {
 
 app.listen(PORT, () => {
   console.clear()
-  console.log(`🟢 Server started: http://localhost:${PORT}`);
-});
 
-if (process.env.NODE_ENV === 'development') {
-  require('./bs');
-}
+  const msg =
+    chalk.bold.white("Sunucu Çalışıyor...") +
+    "\n" +
+    chalk.gray(`→ http://localhost:${PORT}`) +
+    "\n" +
+    chalk.dim(`Time: ${new Date().toLocaleTimeString()}`)
+
+  console.log(
+    boxen(msg, {
+      padding: { top: 1, bottom: 1, left: 2, right: 2 },
+      margin: 1,
+      borderStyle: "double",
+      borderColor: "cyan",
+      backgroundColor: "#0B1220",
+      dimBorder: true
+    })
+  )
+})

@@ -1,14 +1,18 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import ora from "ora"
 
 const connectDB = async () => {
-  try {
-    // await mongoose.connect("mongodb://localhost:27017/sandboxsoftinq");
-    await mongoose.connect("mongodb+srv://ebrar_db_user:Ee1313**@cluster-1.yl9a2yx.mongodb.net/ßßß");
-    console.log("🍃 DataBase Bağlantısı Başarılı!");
-  } catch (err) {
-    console.error("❌ DataBase Bağlantısı Başarısız:", err, "!");
-    process.exit(1);
-  }
-};
+  const spinner = ora("MongoDB bağlanıyor...").start()
 
-export default connectDB;
+  try {
+    await mongoose.connect("mongodb+srv://ebrar_db_user:Ee1313**@cluster-1.yl9a2yx.mongodb.net/ßßß")
+
+    spinner.succeed("MongoDB bağlantısı başarılı!")
+  } catch (err) {
+    spinner.fail("MongoDB bağlantısı başarısız!")
+    console.error(err)
+    process.exit(1)
+  }
+}
+
+export default connectDB
