@@ -5,29 +5,47 @@ import { fileURLToPath } from "url";
 import Swal from 'sweetalert2'
 import chalk from "chalk"
 import boxen from "boxen"
+import "dotenv/config";
+import { Server } from "socket.io";
+import http from "http";
 // import gradient from "gradient-string"
 // import figlet from "figlet"
 
-//Database importları 
+/ =============================== Database importları ================================ /
 import connectDB from "./db.js";
-import User from "./models/DB-KULLANICILAR.js";
 import Project from "./models/DB-PROJELER.js";
+import User from "./models/DB-KULLANICILAR.js";
 import Gorevler from "./models/DB-GOREVLER.js";
+import OurTubeState from "./models/DB-OURTUBE.js";
+import ensureRoom from "./configs/ensureRoom.js";
+import ourtubeRouter from "./routes/ourtube.js";
+
+/ =============================== Express & Socket.io ================================ /
 
 const app = express();
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
+/ =============================== PORT ================================ /
+
 const PORT = 3000;
 
-// ESM __dirname fix
+/ =============================== ESM __dirname fix ================================ /
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// middleware
+/ =============================== MIDDLEWARE ================================ /
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// mongo
-connectDB();
+/ =============================== MONGO ================================ /
+await connectDB();
+await ensureRoom();
 
 / =============================== FRONTEND ================================ /
 
@@ -42,6 +60,9 @@ app.use("/Sosyal",express.static(path.join(__dirname, "../app/template/pages/sos
 
 
 // Router Module
+app.use("/ourtube", ourtubeRouter);
+
+
 app.get("/giris", (req, res) => {
   res.sendFile(path.join(__dirname,"../app/template/login/login.html"));
 });
@@ -319,15 +340,43 @@ app.get("/api/test", (req, res) => {
 });
 /* ===============================TEST================================ */
 
-app.listen(PORT, () => {
-  console.clear()
+io.on("connection", (socket) => {
+  console.log("🔌 Kullanıcı bağlandı:", socket.id);
+
+  // Kullanıcı video ekler
+  socket.on("video:ekle", async (video) => {
+    console.log("Yeni video geldi:", video);
+
+    // Mongo Queue’ye ekle
+    await Room.updateOne(
+      { roomKey: "GLOBAL" },
+      { $push: { queue: video } }
+    );
+
+    // Herkese queue güncellemesi gönder
+    const oda = await Room.findOne({ roomKey: "GLOBAL" });
+    io.emit("queue:update", oda.queue);
+  });
+
+  // Player state
+  socket.on("player:update", (state) => {
+    io.emit("player:sync", state);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("❌ Kullanıcı çıktı:", socket.id);
+  });
+});
+
+server.listen(PORT, () => {
+  console.clear();
 
   const msg =
     chalk.bold.white("Sunucu Çalışıyor...") +
     "\n" +
     chalk.gray(`→ http://localhost:${PORT}`) +
     "\n" +
-    chalk.dim(`Time: ${new Date().toLocaleTimeString()}`)
+    chalk.dim(`Time: ${new Date().toLocaleTimeString()}`);
 
   console.log(
     boxen(msg, {
@@ -336,7 +385,11 @@ app.listen(PORT, () => {
       borderStyle: "double",
       borderColor: "cyan",
       backgroundColor: "#0B1220",
-      dimBorder: true
+      dimBorder: true,
     })
-  )
-})
+  );
+});
+
+
+
+
