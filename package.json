@@ -27,9 +27,11 @@
     "figlet": "^1.9.4",
     "gradient-string": "^3.0.0",
     "mongoose": "^9.0.2",
+    "node-fetch": "^3.3.2",
     "ora": "^9.0.0",
     "socket.io": "^4.8.3",
-    "sweetalert2": "^11.26.17"
+    "sweetalert2": "^11.26.17",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4"

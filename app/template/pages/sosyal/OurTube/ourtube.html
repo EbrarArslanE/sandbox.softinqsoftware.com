@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Görevler | Görev Listesi</title>
+    <title>OurTube | OurTube</title>
     <link rel="stylesheet" href="/assets/css/temp.css">
     <link rel="stylesheet" href="/assets/css/glass-table.css"/>
     <link rel="stylesheet" href="/assets/css/variables.css"/>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/css/glass-elements.css"/>
     <link rel="stylesheet" href="/assets/css/youtube.css"/>
     <link rel="stylesheet" href="/assets/css/background.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -43,7 +44,7 @@
                   <input class="cam-input" id="ytSearch" placeholder="YouTube Araması Yap...">
                 </div>
                 <div class="yt-input w-20 h-100">
-                    <button class="glass-btn w-100" onclick="ytSearch()"><i class="fab fa-youtube"></i></button>
+                    <button class="glass-btn w-100" onclick="ytSearch()" type="button"><i class="fab fa-youtube"></i></button>
                 </div>
               </div>
 
@@ -167,6 +168,7 @@
         </main>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/js/temp.js"></script>
     <script src="/pages/sosyal/OurTube/ourtube.js"></script>

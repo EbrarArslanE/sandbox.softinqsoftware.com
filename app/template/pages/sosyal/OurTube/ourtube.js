@@ -17,11 +17,13 @@ function ytLoad() {
 }
 
 async function ytSearch() {
-  const q = document.getElementById("ytSearch").value.trim();
+  const input = document.getElementById("ytSearch");
   const resultBox = document.getElementById("ytResults");
 
+  const q = input.value.trim();
+
   if (!q) {
-    Swal.fire("Kanka boş arama olmaz 😄");
+    toastr.warning("Kanka boş arama olmaz 😄");
     return;
   }
 
@@ -29,39 +31,39 @@ async function ytSearch() {
     const res = await fetch(`/ourtube/videoAra?q=${encodeURIComponent(q)}`);
     const data = await res.json();
 
-    // Burada data.items yoksa veya boşsa uyar
-if (!data.videos || data.videos.length === 0) {
-  Swal.fire("Video bulunamadı kanka 😢");
-  return;
-}
+    console.log("YT RAW:", data);
 
+    if (!data.success || !Array.isArray(data.items)) {
+      toastr.info("Video bulunamadı kanka 😢");
+      return;
+    }
 
-    resultBox.innerHTML = ""; // Temizle
+    resultBox.innerHTML = "";
 
     data.items.forEach(v => {
-      // videoId farklı olabilir, onu kontrol edelim:
-      const videoId = v.id.videoId || v.id;
+      const videoId = v.id.videoId;
       const title = v.snippet.title;
-      const thumb = v.snippet.thumbnails?.medium?.url || "";
+      const thumb = v.snippet.thumbnails.medium.url;
 
       const card = document.createElement("div");
       card.className = "video-card";
+
       card.innerHTML = `
         <img src="${thumb}" alt="${title}">
         <h4>${title}</h4>
       `;
 
-      card.onclick = () => {
-        selectVideo(videoId, title);
-      };
-
+      card.onclick = () => selectVideo(videoId, title);
       resultBox.appendChild(card);
     });
+
   } catch (err) {
-    Swal.fire("Bir hata oluştu kanka, tekrar dene 😕");
     console.error(err);
+    toastr.error("Bir hata oluştu kanka 😕");
   }
 }
+
+
 
 function renderQueue(videos) {
   const list = document.getElementById("queueList");
