@@ -1,7 +1,57 @@
-function ytLoad() {
-  const link = document.getElementById("ytLink").value;
-  const frame = document.getElementById("ytFrame");
+  let player;
+  let progressInterval;
 
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+      height: "360",
+      width: "640",
+      videoId: "",
+      playerVars: {
+        controls: 0,
+        modestbranding: 1,
+        rel: 0
+      },
+      events: {
+        onReady: () => {
+          toastr.success("Player hazır kanka 🚀");
+        },
+        onStateChange: onPlayerStateChange
+      }
+    });
+  }
+  
+  function onPlayerStateChange(e) {
+    if (e.data === YT.PlayerState.PLAYING) {
+      startProgress();
+    } else {
+      stopProgress();
+    }
+  }
+
+  function startProgress() {
+    stopProgress();
+    progressInterval = setInterval(() => {
+      const current = player.getCurrentTime();
+      const total = player.getDuration();
+
+      if (total > 0) {
+        const percent = (current / total) * 100;
+        updateProgressBar(percent);
+      }
+    }, 500);
+  }
+
+  function stopProgress() {
+    clearInterval(progressInterval);
+  }
+
+  function updateProgressBar(percent) {
+    const bar = document.getElementById("progressBar");
+    if (bar) bar.style.width = percent + "%";
+  }
+
+  function ytLoad() {
+  const link = document.getElementById("ytLink").value;
   let id;
 
   if (link.includes("v="))
@@ -9,63 +59,28 @@ function ytLoad() {
   else if (link.includes("youtu.be"))
     id = link.split("youtu.be/")[1].split("?")[0];
   else {
-    alert("Kanka doğru link ver 😄");
+    toastr.warning("Kanka doğru link ver 😄");
     return;
   }
 
-  frame.src = "https://www.youtube.com/embed/" + id;
+  if (!player) {
+    toastr.error("Player hazır değil kanka");
+    return;
+  }
+
+  player.loadVideoById(id);
+  toastr.success("Video yüklendi 🔥");
 }
-
-async function ytSearch() {
-  const input = document.getElementById("ytSearch");
-  const resultBox = document.getElementById("ytResults");
-
-  const q = input.value.trim();
-
-  if (!q) {
-    toastr.warning("Kanka boş arama olmaz 😄");
-    return;
-  }
-
-  try {
-    const res = await fetch(`/ourtube/videoAra?q=${encodeURIComponent(q)}`);
-    const data = await res.json();
-
-    console.log("YT RAW:", data);
-
-    if (!data.success || !Array.isArray(data.items)) {
-      toastr.info("Video bulunamadı kanka 😢");
+ function selectVideo(videoId, title) {
+    if (!player) {
+      toastr.error("Player hazır değil kanka");
       return;
     }
 
-    resultBox.innerHTML = "";
-
-    data.items.forEach(v => {
-      const videoId = v.id.videoId;
-      const title = v.snippet.title;
-      const thumb = v.snippet.thumbnails.medium.url;
-
-      const card = document.createElement("div");
-      card.className = "video-card";
-
-      card.innerHTML = `
-        <img src="${thumb}" alt="${title}">
-        <h4>${title}</h4>
-      `;
-
-      card.onclick = () => selectVideo(videoId, title);
-      resultBox.appendChild(card);
-    });
-
-  } catch (err) {
-    console.error(err);
-    toastr.error("Bir hata oluştu kanka 😕");
+    player.loadVideoById(videoId);
+    toastr.info(`Oynatılıyor: ${title}`);
   }
-}
-
-
-
-function renderQueue(videos) {
+  function renderQueue(videos) {
   const list = document.getElementById("queueList");
   list.innerHTML = "";
 
@@ -74,28 +89,24 @@ function renderQueue(videos) {
     item.className = "queue-item";
 
     item.innerHTML = `
-      <img src="${v.thumbnail}" alt="${v.title}">
+      <img src="${v.thumbnail}">
       <div>
         <h4>${v.title}</h4>
         <p>${v.channel}</p>
       </div>
       <button class="queue-play">
-        <i class="fa-solid fa-play"></i>
+        ▶
       </button>
     `;
 
     item.querySelector(".queue-play").onclick = () => {
-      document.getElementById("ytFrame").src =
-        "https://www.youtube.com/embed/" + v.id;
+      player.loadVideoById(v.id);
+      toastr.info(`Sıradan çalıyor: ${v.title}`);
     };
 
     list.appendChild(item);
   });
 }
 
-// Video seçildiğinde çalışan fonksiyon, örnek olarak ekledim
-function selectVideo(videoId, title) {
-  const frame = document.getElementById("ytFrame");
-  frame.src = "https://www.youtube.com/embed/" + videoId;
-  Swal.fire(`Kanka seçtin: ${title}`);
-}
+
+

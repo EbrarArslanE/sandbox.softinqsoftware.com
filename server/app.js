@@ -63,6 +63,10 @@ app.use("/Sosyal",express.static(path.join(__dirname, "../app/template/pages/sos
 app.use("/ourtube", ourtubeRouter);
 
 
+app.get("", (req, res) => {
+  res.sendFile(path.join(__dirname,"../app/template/login/login.html"));
+});
+
 app.get("/giris", (req, res) => {
   res.sendFile(path.join(__dirname,"../app/template/login/login.html"));
 });

@@ -51,53 +51,28 @@
                 <div class="card">
                   <div class="card-info w-100">
                     <div class="yt-wrapper">
+                    <input id="ytSearch" placeholder="Video ara..." />
+                      <button id="searchBtn">Ara</button>
+                    <div id="ytResults"></div>
                     
-                      <div class="yt-header">
-                          <h2>🎥 OurTube</h2>
-                          <p>Video izleme alanı — Ortak İzleme Odası</p>
-                      </div>
-                    
-                      <div class="yt-player">
-                          <iframe id="ytFrame" allowfullscreen></iframe>
-                      </div>
-                    
-                      <!-- PLAYER CONTROLS -->
+                    <div class="yt-player">
+                      <div id="player"></div>
+                    </div>
+
                       <div class="yt-controls">
+                        <div class="progress-track">
+                          <div class="progress-bar" id="progressBar"></div>
+                        </div>
                       
-                          <div class="progress-area">
-                              <div class="progress-track">
-                                  <div class="progress-bar" id="progressBar" style="width: 35%;"></div>
-                              </div>
-                            
-                              <div class="time">
-                                  <span id="currentTime">00:00</span>
-                                  <span id="totalTime">00:00</span>
-                              </div>
-                          </div>
-                        
-                          <div class="control-buttons">
-                          
-                              <button class="ctrl-btn" id="prevBtn">
-                                  <i class="fa-solid fa-backward"></i>
-                              </button>
-                            
-                              <button class="ctrl-btn" id="playBtn">
-                                  <i class="fa-solid fa-play"></i>
-                              </button>
-                            
-                              <button class="ctrl-btn" id="nextBtn">
-                                  <i class="fa-solid fa-forward"></i>
-                              </button>
-                            
-                              <div class="volume">
-                                  <i class="fa-solid fa-volume-high"></i>
-                                  <input type="range" min="0" max="100" value="60" id="volumeRange">
-                              </div>
-                            
-                          </div>
-                        
+                        <div class="time">
+                          <span id="currentTime">00:00</span>
+                          <span id="totalTime">00:00</span>
+                        </div>
+                      
+                        <div class="control-buttons">
+                          <button class="ctrl-btn" id="playBtn"><i class="fa-solid fa-play"></i></button>
+                        </div>
                       </div>
-                    
                     </div>
                   </div>
                 </div>
@@ -168,9 +143,12 @@
         </main>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/assets/js/temp.js"></script>
-    <script src="/pages/sosyal/OurTube/ourtube.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/assets/js/temp.js"></script>
+  <script src="/pages/sosyal/OurTube/ourtube.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html> 
